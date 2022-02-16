@@ -12,7 +12,7 @@ import (
 // If the path is not provided in the map, then the fallback
 // http.Handler will be called instead.
 func MapHandler(pathsToUrls map[string]string, fallback http.Handler) http.HandlerFunc {
-	return http.HandlerFunc(func(writer http.ResponseWriter, request *http.Request) {
+	return func(writer http.ResponseWriter, request *http.Request) {
 		for shortUrl, intendedUrl := range pathsToUrls {
 			if shortUrl == request.URL.Path {
 				http.Redirect(writer, request, intendedUrl, http.StatusSeeOther)
@@ -20,7 +20,7 @@ func MapHandler(pathsToUrls map[string]string, fallback http.Handler) http.Handl
 		}
 
 		fallback.ServeHTTP(writer, request)
-	})
+	}
 }
 
 type ShorterUrl struct {
