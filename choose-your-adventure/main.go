@@ -26,11 +26,9 @@ func main() {
 }
 
 func getDisplayAdapter(adapter string) DisplayAdapter {
-	return Adapters.ConsoleAdapter{}
-
-	//if adapter == "console" {
-	//	return Adapters.ConsoleAdapter{}
-	//} else {
-	//	return Adapters.WebAdapter{}
-	//}
+	if adapter == "web" {
+		return Adapters.WebAdapter{}
+	} else {
+		return Adapters.ConsoleAdapter{}
+	}
 }
