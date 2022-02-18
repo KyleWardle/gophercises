@@ -6,14 +6,17 @@ import (
 	"time"
 )
 
-type ConsoleAdapter struct{}
-
-func (ca ConsoleAdapter) Initialise(service *Services.StoryService) {
-	ca.askQuestion(service)
+type ConsoleAdapter struct {
+	service *Services.StoryService
 }
 
-func (ca ConsoleAdapter) askQuestion(service *Services.StoryService) {
-	storyPart := service.GetStoryPart()
+func (ca ConsoleAdapter) Initialise(service *Services.StoryService) {
+	ca.service = service
+	ca.askQuestion()
+}
+
+func (ca ConsoleAdapter) askQuestion() {
+	storyPart := ca.service.GetStoryPart()
 
 	storyLines := storyPart.Story
 	for _, line := range storyLines {
@@ -22,7 +25,7 @@ func (ca ConsoleAdapter) askQuestion(service *Services.StoryService) {
 		time.Sleep(ca.getConsoleWaitTime(line))
 	}
 
-	if service.StoryHasFinished() {
+	if ca.service.StoryHasFinished() {
 		fmt.Println("End of Story!")
 		return
 	}
@@ -33,10 +36,10 @@ func (ca ConsoleAdapter) askQuestion(service *Services.StoryService) {
 
 	var text string
 	fmt.Scanln(&text)
-	service.SelectStoryOption(text)
+	ca.service.SelectStoryOption(text)
 
 	fmt.Println("\n\n\n")
-	ca.askQuestion(service)
+	ca.askQuestion()
 }
 
 func (ca ConsoleAdapter) getConsoleWaitTime(text string) time.Duration {
