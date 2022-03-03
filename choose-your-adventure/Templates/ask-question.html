@@ -30,7 +30,7 @@
         <div class="row">
             <div class="offset-sm-2 col-sm-8 text-center">
                 {{ range $line := .Story }}
-                    <p>{{ . }}</p>
+                    <p>{{ $line }}</p>
                 {{ end}}
             </div>
         </div>
@@ -38,7 +38,7 @@
         <div class="row">
             <div class="offset-sm-2 col-sm-8 text-center">
                 {{ range $option := .Options }}
-                <a href="/answer/{{ .Arc }}" class="btn btn-primary mt-3">{{ .Text }}</a>
+                <a href="/answer/{{ $option.Arc }}" class="btn btn-primary mt-3">{{ $option.Text }}</a>
                 {{ end}}
             </div>
         </div>
