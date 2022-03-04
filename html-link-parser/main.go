@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"github.com/davecgh/go-spew/spew"
 	"golang.org/x/net/html"
 	"os"
@@ -13,7 +14,10 @@ type Link struct {
 }
 
 func main() {
-	links := parseLinks("examples/ex2.html")
+	example := flag.String("example", "ex1", "")
+	flag.Parse()
+	
+	links := parseLinks("examples/" + *example + ".html")
 	spew.Dump(links)
 }
 
@@ -55,10 +59,8 @@ func iterateNode(node *html.Node, links *[]Link, text *string) {
 		}
 
 	} else {
-		if text != nil {
-			if node.Type == html.TextNode {
-				*text += node.Data
-			}
+		if text != nil && node.Type == html.TextNode {
+			*text += node.Data
 		}
 
 		for child := node.FirstChild; child != nil; child = child.NextSibling {
