@@ -1,5 +1,5 @@
-github.com/KyleWardle/gophercises/html-link-parser v0.0.0-20220310104057-b51db8e68298 h1:7ZJXsOpgz99YXtC8MiRlVcsQ7VKQQ2x+AkQ7BaVCiFU=
-github.com/KyleWardle/gophercises/html-link-parser v0.0.0-20220310104057-b51db8e68298/go.mod h1:KioJO93PUc9DDY1osADSBG6iasXXjasyiqA9VCDoP7o=
+github.com/KyleWardle/gophercises/html-link-parser v0.0.0-20220310110546-c59adf40b196 h1:fOnpugrEHR+o5LpaFbP+1yQDtlk71BKkss+cOREDgTE=
+github.com/KyleWardle/gophercises/html-link-parser v0.0.0-20220310110546-c59adf40b196/go.mod h1:KioJO93PUc9DDY1osADSBG6iasXXjasyiqA9VCDoP7o=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 golang.org/x/net v0.0.0-20220225172249-27dd8689420f h1:oA4XRj0qtSt8Yo1Zms0CUlsT3KG69V2UGQWPBxujDmc=
