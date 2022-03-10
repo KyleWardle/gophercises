@@ -1,17 +1,17 @@
-package main
+package parser
 
 import (
 	"testing"
 )
 
 func TestExampleOne(t *testing.T) {
-	links := parseLinks("examples/ex1.html")
+	links := ParseLinks("examples/ex1.html")
 	assertEquals(t, links[0].Href, "/other-page")
 	assertEquals(t, links[0].Text, "A link to another page")
 }
 
 func TestExampleTwo(t *testing.T) {
-	links := parseLinks("examples/ex2.html")
+	links := ParseLinks("examples/ex2.html")
 	assertEquals(t, links[0].Href, "https://www.twitter.com/joncalhoun")
 	assertEquals(t, links[0].Text, "Check me out on twitter")
 
@@ -20,7 +20,7 @@ func TestExampleTwo(t *testing.T) {
 }
 
 func TestExampleThree(t *testing.T) {
-	links := parseLinks("examples/ex3.html")
+	links := ParseLinks("examples/ex3.html")
 	assertEquals(t, links[0].Href, "#")
 	assertEquals(t, links[0].Text, "Login")
 
@@ -32,7 +32,7 @@ func TestExampleThree(t *testing.T) {
 }
 
 func TestExampleFour(t *testing.T) {
-	links := parseLinks("examples/ex4.html")
+	links := ParseLinks("examples/ex4.html")
 	assertEquals(t, links[0].Href, "/dog-cat")
 	assertEquals(t, links[0].Text, "dog cat")
 }
