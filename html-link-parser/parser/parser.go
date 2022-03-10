@@ -2,7 +2,7 @@ package parser
 
 import (
 	"golang.org/x/net/html"
-	"os"
+	"io"
 	"strings"
 )
 
@@ -11,14 +11,8 @@ type Link struct {
 	Text string
 }
 
-func ParseLinks(path string) []Link {
-	file, err := os.Open(path)
-	if err != nil {
-		panic(err)
-	}
-	defer file.Close()
-
-	doc, err := html.Parse(file)
+func ParseLinks(reader io.Reader) []Link {
+	doc, err := html.Parse(reader)
 	if err != nil {
 		panic(err)
 	}
